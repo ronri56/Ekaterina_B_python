@@ -1,18 +1,28 @@
 import time, random
-print('Сейчас сыграем в угадайку! Комьютер загадывает число, а вы пытаетесь его отгадать')
 
+again = 1
+computer = random.randint(1,51)
 
-computer = random.randint(1,100)
-print("Компьютер загадывает число, подождите")
+while again == 1:
+    # print(computer)
+    print('Комьютер загадал число, попытайтесь его отгадать')
 
-for i in range (1,6):
-    print(".")
-    time.sleep(1)
+    user = int(input('Теперь угадывайте! Введите число от 1 до 50: ', ))
 
-user = int(input('Теперь угадывайте! Введите число от 1 до 100: ', ))
+    if user == computer:
+        print("Ура, вы выиграли!")
+        again = int(input('Хотите сыграть еще раз? Если да, введите 1, если нет, введите 0: '))
+        if again == 1:
+            computer = random.randint(1,51)
+            continue
+        else:
+            break
 
-if user == computer:
-    print("Ура, вы выиграли!")
-else:
-    print("Вы проиграли:(")
+    elif user > computer:
+        print("Вы проиграли:( Загаданное число меньше")
+    elif user < computer:
+        print("Вы проиграли:( Загаданное число больше")
+    
+    
 
+    
